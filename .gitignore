@@ -1,0 +1,9 @@
+# Node
+.idea/
+node_modules/
+
+# Build outputs
+build/
+
+# Coverage
+coverage/

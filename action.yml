@@ -1,0 +1,39 @@
+name: 'Repository Permission'
+description: 'GitHub Action that checks repository permission for a user flexibly'
+author: 'Koichi Yokota'
+inputs:
+  token:
+    description: 'Repository token. GitHub Action token is used by default(recommended). But you can also use the other token(e.g. personal access token).'
+    required: false
+    default: ${{ github.token }}
+  required-permission:
+    description: 'Required permission level to the repository.'
+    required: true
+    default: 'admin'
+  comment-permitted:
+    description: 'Issue comment added when a user is permitted.'
+    required: false
+  comment-not-permitted:
+    description: 'Issue comment added when a user is not permitted.'
+    required: false
+  reaction-permitted:
+    description: 'Reaction to the issue comment(if it exists) when a user is permitted.'
+    required: false
+  reaction-not-permitted:
+    description: 'Reaction to the issue comment(if it exists) when a user is not permitted.'
+    required: false
+  relax:
+    description: 'Does NOT check repository permission strictly. If this is set to true, the action sets exit code to 0 regardless of whether a user is permitted.'
+    required: false
+    default: false
+outputs:
+  actual-permission:
+    description: 'Actual permission level of a user trying to access the repository.'
+  permitted:
+    description: 'Whether a user is permitted or not.'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
+branding:
+  color: 'purple'
+  icon: 'check-square'
