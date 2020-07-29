@@ -1,5 +1,6 @@
 # action-repository-permission
 
+[![GitHub Marketplace](https://img.shields.io/badge/Marketplace-v1-undefined.svg?logo=github&logoColor=white)](https://github.com/marketplace/actions/repository-permission)
 [![release](https://img.shields.io/github/v/release/sushichop/action-repository-permission.svg?color=blue)](https://github.com/sushichop/action-repository-permission/releases)
 ![CI](https://github.com/sushichop/action-repository-permission/workflows/CI/badge.svg)
 [![codecov](https://codecov.io/gh/sushichop/action-repository-permission/branch/main/graph/badge.svg)](https://codecov.io/gh/sushichop/action-repository-permission)
@@ -27,9 +28,7 @@ jobs:
         echo "An actual permission was '${{ steps.permission.outputs.actual-permission }}'"
 ```
 
-You can set `none`, `read`, `write`, or `admin` to `required-permission`. In this action, the permission of a user trying to access the repository is named `actual-permission`.
-
-This action uses [GitHub API](https://docs.github.com/en/rest/reference/repos#get-repository-permissions-for-a-user) internally and sets `permitted` to true and returns 0 as exit code when `actual-permission` is equal or greater than `required-permission`.
+You can set `none`, `read`, `write`, or `admin` to `required-permission`. In this action, the permission of a user trying to access the repository is named `actual-permission`. It uses [GitHub API](https://docs.github.com/en/rest/reference/repos#get-repository-permissions-for-a-user) internally and sets `permitted` to true and returns 0 as exit code when `actual-permission` is equal or greater than `required-permission`.
 
 Furthermore, you can also control various things flexibly according to the condition.
 
@@ -51,7 +50,8 @@ jobs:
     name: Danger for external - node.js 12.x
     if: |
       github.event_name == 'issue_comment' && github.event.action == 'created'
-      && github.event.issue.pull_request != null && startsWith(github.event.comment.body, '/danger')
+      && github.event.issue.pull_request != null 
+      && startsWith(github.event.comment.body, '/danger')
     runs-on: ubuntu-latest
     steps:
     - name: Check repository permission for user
@@ -73,9 +73,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
-The above is a good example to execute [danger](https://danger.systems) as an issue comment for the pull request from the fork.
-
-This action permits the only authorized users to execute `danger`.
+The above is a good example to execute [danger](https://danger.systems) as an issue comment for the pull request from the fork. It permits the only authorized users to execute `danger`.
 
 **As a matter of fact, I created `action-repository-permission` to achieve this!**
 
