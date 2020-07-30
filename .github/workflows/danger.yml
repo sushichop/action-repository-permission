@@ -18,6 +18,8 @@ jobs:
     steps:
     - name: Clone the source for the event
       uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
     - uses: actions/setup-node@v1
       with:
         node-version: 12.x
@@ -30,7 +32,7 @@ jobs:
     name: Danger for external - node.js 12.x
     if: |
       github.event_name == 'issue_comment' && github.event.action == 'created'
-      && github.event.issue.pull_request != null 
+      && github.event.issue.pull_request != null
       && startsWith(github.event.comment.body, '/danger')
 #      && github.event.pull_request.head.repo.full_name == !github.repository
     runs-on: ubuntu-latest
@@ -38,10 +40,8 @@ jobs:
     - name: Clone the action source
       uses: actions/checkout@v2
     - name: Check repository permission for user
-      id: permission
       uses: ./
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
         required-permission: write
         reaction-permitted: rocket
         comment-not-permitted: Sorry, you don't have enough permission to execute `/danger`...
@@ -49,6 +49,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         ref: refs/pull/${{ github.event.issue.number }}/head
+        fetch-depth: 0
     - uses: actions/setup-node@v1
       with:
         node-version: 12.x
