@@ -1,11 +1,11 @@
 {
   "env": {
     "node": true,
-    "es2020": true,
     "jest/globals": true
   },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
+    "ecmaVersion": 2019,
     "sourceType": "module"
   },
   "plugins": ["@typescript-eslint", "import", "jest"],
