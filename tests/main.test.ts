@@ -44,10 +44,11 @@ describe('run test', () => {
 
   it('unknown exception should be caught', async () => {
     // inputs
+    const error = new Error('Unknown exception');
     jest.spyOn(core, 'getInput').mockImplementation((): never => {
-      throw new Error('Unknown exception');
+      throw error;
     });
     await run();
-    expect(core.setFailed).toHaveBeenCalledWith('Unknown exception');
+    expect(core.setFailed).toHaveBeenCalledWith(`${error}`);
   });
 });

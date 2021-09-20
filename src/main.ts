@@ -12,7 +12,7 @@ export const run = async (): Promise<void> => {
     await comment(token, permitted);
     relaxPermission(permitted);
   } catch (error) {
-    core.setFailed(error.message);
+    core.setFailed(`${error}`);
   }
 };
 

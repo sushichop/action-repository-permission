@@ -9,7 +9,7 @@ const checkPermission = async (token: string): Promise<boolean> => {
   const { owner, repo } = context.repo;
   const username = context.actor;
 
-  const response = await octokit.repos.getCollaboratorPermissionLevel({ owner, repo, username });
+  const response = await octokit.rest.repos.getCollaboratorPermissionLevel({ owner, repo, username });
   const actualPermission = response.data.permission;
   core.debug(`actual-permission: ${actualPermission}`);
   core.setOutput('actual-permission', actualPermission);
