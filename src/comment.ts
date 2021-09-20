@@ -10,7 +10,7 @@ const comment = async (token: string, permitted: boolean): Promise<void> => {
   const issueNumber = context.payload.issue?.number;
 
   if (permitted && commentPermitted.length !== 0 && issueNumber) {
-    await octokit.issues.createComment({
+    await octokit.rest.issues.createComment({
       owner: owner,
       repo: repo,
       issue_number: issueNumber,
@@ -18,7 +18,7 @@ const comment = async (token: string, permitted: boolean): Promise<void> => {
     });
   }
   if (!permitted && commentNotPermitted.length !== 0 && issueNumber) {
-    await octokit.issues.createComment({
+    await octokit.rest.issues.createComment({
       owner: owner,
       repo: repo,
       issue_number: issueNumber,

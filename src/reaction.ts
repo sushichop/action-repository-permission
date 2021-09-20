@@ -11,7 +11,7 @@ const reaction = async (token: string, permitted: boolean): Promise<void> => {
   const commentId = context.payload.comment?.id;
 
   if (permitted && reactionPermitted.length !== 0 && commentId) {
-    await octokit.reactions.createForIssueComment({
+    await octokit.rest.reactions.createForIssueComment({
       owner: owner,
       repo: repo,
       comment_id: commentId,
@@ -19,7 +19,7 @@ const reaction = async (token: string, permitted: boolean): Promise<void> => {
     });
   }
   if (!permitted && reactionNotPermitted.length !== 0 && commentId) {
-    await octokit.reactions.createForIssueComment({
+    await octokit.rest.reactions.createForIssueComment({
       owner: owner,
       repo: repo,
       comment_id: commentId,

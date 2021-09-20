@@ -5,7 +5,7 @@ const createdFiles = danger.git.created_files;
 const changedFiles = [...modifiedFiles, ...createdFiles];
 
 const hasChangedSourceFiles = danger.git.fileMatch('src/**/*.ts').edited;
-const hasChangedTestsFiles = danger.git.fileMatch('__tests__/**/*.ts').edited;
+const hasChangedTestsFiles = danger.git.fileMatch('tests/**/*.ts').edited;
 const hasChangedFiles = hasChangedSourceFiles || hasChangedTestsFiles;
 
 // Make it more obvious that a PR is a work in progress and shouldn't be merged yet.

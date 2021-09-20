@@ -1,0 +1,30 @@
+{
+  "env": {
+    "node": true,
+    "es2020": true,
+    "jest/globals": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "plugins": ["@typescript-eslint", "import", "jest"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/errors",
+    "plugin:jest/recommended",
+    "prettier"
+  ],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".ts", ".js"]
+      }
+    }
+  },
+  "rules": {
+    "sort-imports": 0,
+    "import/order": [2, { "alphabetize": { "order": "asc" } }]
+  }
+}

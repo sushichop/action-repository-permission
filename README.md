@@ -32,9 +32,9 @@ You can set `none`, `read`, `write`, or `admin` to `required-permission`. In thi
 
 Furthermore, you can also control various things flexibly according to the condition.
 
- - Add a reaction to user's comment
- - Add an issue comment
- - Change the exit code(Relax repository permission check)
+- Add a reaction to user's comment
+- Add an issue comment
+- Change the exit code(Relax repository permission check)
 
 See [action.yml](action.yml) and [Cheat Sheet](#Cheat-Sheet) for details.
 
@@ -50,7 +50,7 @@ jobs:
     name: Danger for external - node.js 12.x
     if: |
       github.event_name == 'issue_comment' && github.event.action == 'created'
-      && github.event.issue.pull_request != null 
+      && github.event.issue.pull_request != null
       && startsWith(github.event.comment.body, '/danger')
     runs-on: ubuntu-latest
     steps:
@@ -85,7 +85,7 @@ The above is a good example to execute [danger](https://danger.systems) as an is
 - Add a [reaction](https://docs.github.com/en/rest/reference/reactions#reaction-types) to user's comment(if it exists) when he/she is permitted.
 
 | reaction-permitted (input) | permitted (output) | issue comment (what you can expect)           |
-|:---------------------------|:-------------------|:----------------------------------------------|
+| :------------------------- | :----------------- | :-------------------------------------------- |
 | valid value is not set     | true               | `reaction-permitted` is not added as reaction |
 | valid value is not set     | false              | `reaction-permitted` is not added as reaction |
 | **valid value is set**     | **true**           | **`reaction-permitted` is added as reaction** |
@@ -96,7 +96,7 @@ The above is a good example to execute [danger](https://danger.systems) as an is
 - Add a [reaction](https://docs.github.com/en/rest/reference/reactions#reaction-types) to user's comment(if it exists) when he/she is not permitted.
 
 | reaction-not-permitted (input) | permitted (output) | issue comment (what you can expect)               |
-|:-------------------------------|:-------------------|:--------------------------------------------------|
+| :----------------------------- | :----------------- | :------------------------------------------------ |
 | valid value is not set         | true               | `reaction-not-permitted` is not added as reaction |
 | valid value is not set         | false              | `reaction-not-permitted` is not added as reaction |
 | valid value is set             | true               | `reaction-not-permitted` is not added as reaction |
@@ -107,7 +107,7 @@ The above is a good example to execute [danger](https://danger.systems) as an is
 - Add an issue comment when a user is permitted.
 
 | comment-permitted (input)          | permitted (output) | issue comment (what you can expect)               |
-|:-----------------------------------|:-------------------|:--------------------------------------------------|
+| :--------------------------------- | :----------------- | :------------------------------------------------ |
 | value is not set(or empty string)  | true               | `comment-permitted` is not added as issue comment |
 | value is not set(or empty string)  | false              | `comment-permitted` is not added as issue comment |
 | **value is set(not empty string)** | **true**           | **`comment-permitted` is added as issue comment** |
@@ -118,7 +118,7 @@ The above is a good example to execute [danger](https://danger.systems) as an is
 - Add an issue comment added when a user is permitted.
 
 | comment-not-permitted (input)      | permitted (output) | issue comment (what you can expect)                   |
-|:-----------------------------------|:-------------------|:------------------------------------------------------|
+| :--------------------------------- | :----------------- | :---------------------------------------------------- |
 | value is not set(or empty string)  | true               | `comment-not-permitted` is not added as issue comment |
 | value is not set(or empty string)  | false              | `comment-not-permitted` is not added as issue comment |
 | value is set(not empty string)     | true               | `comment-not-permitted` is not added as issue comment |
@@ -129,15 +129,14 @@ The above is a good example to execute [danger](https://danger.systems) as an is
 - Change the exit code (Relax repository permission check).
 
 | relax (input) | permitted (output) | exit code (what you can expect) |
-|:--------------|:-------------------|:--------------------------------|
+| :------------ | :----------------- | :------------------------------ |
 | false         | true               | 0 (success)                     |
 | false         | false              | 1 (failure)                     |
 | true          | true               | 0 (success)                     |
 | **true**      | **false**          | **0 (success)**                 |
 
-
 ## License
 
-[MIT]: http://www.opensource.org/licenses/mit-license
+[mit]: http://www.opensource.org/licenses/mit-license
 
-**action-repository-permission** is available under the [MIT license][MIT]. See the LICENSE file for details.
+**action-repository-permission** is available under the [MIT license][mit]. See the LICENSE file for details.

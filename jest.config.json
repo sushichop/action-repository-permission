@@ -1,0 +1,18 @@
+{
+  "globals": {
+    "ts-jest": {
+      "tsconfig": "tsconfig.json"
+    }
+  },
+  "testEnvironment": "node",
+  "transform": {
+    "\\.[jt]s$": "ts-jest"
+  },
+  "moduleFileExtensions": ["js", "ts"],
+  "testRegex": "(/tests/.*|(\\.|/)(test|spec))\\.[jt]s$",
+  "testPathIgnorePatterns": ["/node_modules/", "/tests/fixtures/"],
+  "coverageDirectory": "./coverage/",
+  "collectCoverage": true,
+  "collectCoverageFrom": ["src/**/*.{js,ts}", "!src/**/*.d.ts"],
+  "verbose": true
+}
