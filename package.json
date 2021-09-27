@@ -1,6 +1,6 @@
 {
   "name": "action-repository-permission",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "GitHub Action that checks repository permission for a user",
   "engines": {
     "node": ">= 14"
