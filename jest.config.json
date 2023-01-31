@@ -1,9 +1,4 @@
 {
-  "globals": {
-    "ts-jest": {
-      "tsconfig": "tsconfig.json"
-    }
-  },
   "testEnvironment": "node",
   "transform": {
     "\\.[jt]s$": "ts-jest"

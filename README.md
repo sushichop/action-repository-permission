@@ -47,7 +47,7 @@ on
       - created
 jobs:
   danger-for-external:
-    name: Danger for external - node.js 12.x
+    name: Danger for external - Node.js 18
     if: |
       github.event_name == 'issue_comment' && github.event.action == 'created'
       && github.event.issue.pull_request != null
@@ -55,19 +55,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Check repository permission for user
-      uses: sushichop/action-repository-permission@v1
+      uses: sushichop/action-repository-permission@v2
       with:
         required-permission: write
         reaction-permitted: rocket
         comment-not-permitted: Sorry, you don't have enough permission to execute `/danger`...
     - name: Clone the PR source
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         ref: refs/pull/${{ github.event.issue.number }}/head
         fetch-depth: 0
-    - uses: actions/setup-node@v1
+    - uses: actions/setup-node@v3
       with:
-        node-version: 12.x
+        node-version: 18
     - name: Danger JS
       run: npx danger ci
       env:
