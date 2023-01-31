@@ -1,6 +1,6 @@
 # action-repository-permission
 
-[![GitHub Marketplace](https://img.shields.io/badge/Marketplace-v1-undefined.svg?logo=github&logoColor=white)](https://github.com/marketplace/actions/repository-permission)
+[![GitHub Marketplace](https://img.shields.io/badge/Marketplace-v2-undefined.svg?logo=github&logoColor=white)](https://github.com/marketplace/actions/repository-permission)
 [![release](https://img.shields.io/github/v/release/sushichop/action-repository-permission.svg?color=blue)](https://github.com/sushichop/action-repository-permission/releases)
 ![CI](https://github.com/sushichop/action-repository-permission/workflows/CI/badge.svg)
 [![codecov](https://codecov.io/gh/sushichop/action-repository-permission/branch/main/graph/badge.svg)](https://codecov.io/gh/sushichop/action-repository-permission)
