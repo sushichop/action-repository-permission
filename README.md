@@ -47,7 +47,7 @@ on
       - created
 jobs:
   danger-for-external:
-    name: Danger for external - Node.js 18
+    name: Danger for external - Node.js 16
     if: |
       github.event_name == 'issue_comment' && github.event.action == 'created'
       && github.event.issue.pull_request != null
@@ -67,7 +67,7 @@ jobs:
         fetch-depth: 0
     - uses: actions/setup-node@v3
       with:
-        node-version: 18
+        node-version: 16
     - name: Danger JS
       run: npx danger ci
       env:
