@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "description": "GitHub Action that checks repository permission for a user",
   "engines": {
-    "node": ">= 16"
+    "node": ">= 22"
   },
   "private": true,
   "repository": {
