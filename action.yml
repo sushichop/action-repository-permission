@@ -32,7 +32,7 @@ outputs:
   permitted:
     description: 'Whether a user is permitted or not.'
 runs:
-  using: 'node16'
+  using: 'node20'
   main: 'dist/index.js'
 branding:
   color: 'purple'

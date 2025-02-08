@@ -50,7 +50,7 @@ jobs:
         with:
           ref: refs/pull/${{ github.event.issue.number }}/head
           fetch-depth: 0
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: 22
       - name: Danger JS
